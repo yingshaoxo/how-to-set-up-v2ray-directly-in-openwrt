@@ -321,6 +321,8 @@ uci show firewall.@redirect[0]
 
 > We used to use `redsocks` to forward data into a `socks5` inbound port. It still does the work under a full-linux system.
 
+More info about openwrt's firewall: https://openwrt.org/docs/guide-user/firewall/fw3_configurations/fw3_config_examples
+
 ## Step 6:
 
 So far, you could already have a VPN wifi, enjoy it.
