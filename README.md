@@ -259,9 +259,9 @@ file content:
 /usr/bin/v2ray run --config=/root/v2ray_config.json &
 ```
 
-## Step 4.5: Use iptables if it is working (Optional)
+## Step 4.5: Use iptables (if it is working)
 
-For some reason, `iptables` not fully work on this router, it will say `--to-ports` is not defined if I run the following command:
+For some reason, `iptables` not fully work on my router, it will say `--to-ports` is not defined if I run the following command:
 
 ```
 sysctl -w net.ipv4.ip_forward=1 # forward any unrelated traffic somewhere, if the system isn't supposed to be forwarding
@@ -285,7 +285,7 @@ iptables -t nat -A OUTPUT -p tcp -j V2RAY # Transparent proxy for this machine
 More info about iptables:
 https://guide.v2fly.org/en_US/app/transparent_proxy.html#procedures
 
-## Step 5: Set up a firewall rule to forward data into `dokodemo-door` inbound port
+## Step 5: Set up a firewall rule to forward data into `dokodemo-door` inbound port (if iptables not work on the openwrt)
 
 set up:
 
