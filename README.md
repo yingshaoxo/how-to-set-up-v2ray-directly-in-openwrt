@@ -271,8 +271,8 @@ iptables -t nat -A V2RAY -d 192.168.0.0/16 -j RETURN # Direct connection 192.168
 iptables -t nat -A V2RAY -p tcp -j RETURN -m mark --mark 0xff # Directly connect SO_MARK to 0xff traffic (0xff is a hexadecimal number, numerically equivalent to 255), the purpose of this rule is to avoid proxy loopback with local (gateway) traffic
 iptables -t nat -A V2RAY -p tcp -j REDIRECT --to-ports 12345 # The rest of the traffic is forwarded to port 12345 (ie V2Ray)
 
-iptables -t nat -A PREROUTING -p tcp --dport 443 -j V2RAY # Transparent proxy for other LAN devices that tries to connect 443 port
-iptables -t nat -A OUTPUT -p tcp --dport 443 -j V2RAY # Transparent proxy for this machine
+iptables -t nat -A PREROUTING -p tcp -j V2RAY # Transparent proxy for other LAN devices
+iptables -t nat -A OUTPUT -p tcp -j V2RAY # Transparent proxy for this machine
 ```
 
 ```
@@ -296,7 +296,6 @@ uci set firewall.@redirect[0].name='Redirect-HTTPS-to-v2ray-dokodemo-door-proxy-
 uci set firewall.@redirect[0].proto='tcp'
 uci set firewall.@redirect[0].src='lan'
 uci set firewall.@redirect[0].src_dport='443'
-uci set firewall.@redirect[0].src_dport='22'
 uci set firewall.@redirect[0].dest_port='12345'
 uci commit firewall
 fw4 restart
