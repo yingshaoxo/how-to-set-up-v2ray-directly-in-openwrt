@@ -63,6 +63,8 @@ scp ge* root@192.168.1.1:/usr/bin/
 
 ## Step 3: write v2ray configuration file
 
+> v2ray configuration explanation: https://guide.v2fly.org/en_US/basics/vmess.html#vmess
+
 ```
 vim /root/v2ray_config.json
 ```
