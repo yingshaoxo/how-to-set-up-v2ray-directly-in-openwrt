@@ -295,7 +295,8 @@ uci set firewall.@redirect[0].target='DNAT'
 uci set firewall.@redirect[0].name='Redirect-HTTPS-to-v2ray-dokodemo-door-proxy-port'
 uci set firewall.@redirect[0].proto='tcp'
 uci set firewall.@redirect[0].src='lan'
-uci set firewall.@redirect[0].src_dport='443'
+#uci set firewall.@redirect[0].src_dport='443'
+uci set firewall.@redirect[0].src_dport='22'
 uci set firewall.@redirect[0].dest_port='12345'
 uci commit firewall
 fw4 restart
